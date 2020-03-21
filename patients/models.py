@@ -6,11 +6,18 @@ from django.contrib.auth.models import User
 class Test(models.Model):
     code = models.CharField(max_length=6, default="")
     email = models.CharField(max_length=100, default="")
-
     num_people = models.IntegerField(default=1)
     car = models.BooleanField(default=True)
     license_plate = models.CharField(max_length=10, default="")
+    date_created = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(default=timezone.now)
 
+    def __str__(self):
+        return self.email
+
+
+class Patient(models.Model):
+    test = models.ForeignKey(Test,on_delete=models.CASCADE)
     firstname = models.CharField(max_length=100, default="")
     lastname = models.CharField(max_length=100, default="")
     birthdate = models.DateField(default=timezone.now)
@@ -23,9 +30,3 @@ class Test(models.Model):
 
     tested = models.BooleanField(default=False)
     confirmed = models.BooleanField(default=False)
-
-    date_created = models.DateTimeField(auto_now_add=True)
-    last_modified = models.DateTimeField(default=timezone.now)
-
-    def __str__(self):
-        return self.email
