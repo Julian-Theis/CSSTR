@@ -5,7 +5,7 @@ from django.contrib.admin.widgets import AdminDateWidget
 
 class TestRegistrationForm(forms.ModelForm):
     email = forms.EmailField(required=True)
-    num_people = forms.IntegerField(min_value=1, max_value=5, label="Anzahl zu testender Personen")
+    num_people = forms.IntegerField(min_value=1, max_value=5, label="Anzahl zu testender Personen",initial=1)
     car = forms.BooleanField(label="Anreise per Auto", required=False)
     license_plate = forms.CharField(max_length=10, label="KfZ-Kennzeichen", required=False)
 
@@ -17,6 +17,8 @@ class TestRegistrationForm(forms.ModelForm):
     phone = forms.CharField(max_length=100, label="Telefon")
     doctor = forms.CharField(max_length=100, label="Hausarzt")
     insurance = forms.CharField(max_length=100, label="Krankenkasse")
+
+
     positive_contact = forms.BooleanField(label="Kontakt zu positiver COVID-19 Person?", required=False)
 
     security = forms.BooleanField(label="Ich bin mit der Datenschutzerklaerung einverstanden")
