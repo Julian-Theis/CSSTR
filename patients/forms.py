@@ -36,5 +36,5 @@ class TestRegistrationForm(forms.ModelForm):
                   'doctor',
                   'insurance',
                   'positive_contact',
-                  'security'
+                  'security',
                   ]
