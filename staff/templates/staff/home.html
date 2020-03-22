@@ -1,6 +1,70 @@
 {% extends "staff/base.html" %}
-<title>CSSRT - Mitarbeiter Login</title>
+<title>CSSRT - Mitarbeiter</title>
+
+
 
 {% block content %}
-<h1>Mitarbeiter Login</h1>
+<h1>Registrierungen</h1>
+    {% if code == None %}
+        <article class="media content-section">
+          Bitte suchen Sie nach einem Code.
+        </article>
+    {% else %}
+        <article class="media content-section">
+            Ergebnisse für Code: &nbsp; <b> {{ code }}</b>
+        </article>
+    {% endif %}
+
+    {% for test in tests %}
+    {% if test.id == id %}
+            <article class="media content-section">
+                <h4>Details zu {{ test.lastname }}, {{ test.firstname }}</h4>
+                <br />
+                Geburtsdatum: &nbsp;&nbsp; {{ test.birthdate }}<br />
+                PLZ, Ort: &nbsp;&nbsp;{{ test.zip }}, {{ test.city }}<br />
+                Telefon: &nbsp;&nbsp;{{ test.phone }}<br />
+                Hausarzt: &nbsp;&nbsp;{{ test.doctor }}<br />
+                Krankenkasse: &nbsp;&nbsp;{{ test.insurance }}<br />
+                Positiver Kontakt:&nbsp;&nbsp; {{ test.positive_contact }}<br />
+                <a href="?code={{ test.code }}&id={{test.id}}&print={{id}}">Drucken</a> &nbsp;|&nbsp; <a href="?code={{test.code}}&archive={{ test.id }}" onclick="return confirmArchive()">Archivieren</a>
+
+            </article>
+    {% endif %}
+    {% endfor %}
+
+<script>
+function confirmArchive() {
+    return confirm("Sind Sie sicher, dass Sie diese Registrierung archivieren möchten? Die Patienteninformationen werden nicht mehr sichtbar sein.");
+}
+</script>
+
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Code</th>
+          <th scope="col">KfZ</th>
+          <th scope="col">Email</th>
+          <th scope="col">Vorname</th>
+          <th scope="col">Nachname</th>
+          <th scope="col">Geb. Datum</th>
+          <th scope="col">Aktion</th>
+        </tr>
+      </thead>
+  <tbody>
+  {% for test in tests %}
+    <tr>
+      <th scope="row">{{ test.code }}</th>
+      <td>{{ test.license_plate }}</td>
+      <td>{{ test.email }}</td>
+      <td>{{ test.firstname }}</td>
+      <td>{{ test.lastname }}</td>
+      <td>{{ test.birthdate }}</td>
+        <td><a href="?code={{ test.code }}&id={{ test.id }}">Anzeigen</a> </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+
 {% endblock content %}
