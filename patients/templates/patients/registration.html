@@ -1,19 +1,40 @@
 {% extends "patients/base.html" %}
 {% load crispy_forms_tags %}
-<title>CSSRT - Registrierung</title>
 
 {% block content %}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous" type="text/javascript"></script>
+<title>CSSRT - Registrierung</title>
 <h1>Corona Test Registrierung</h1>
+
 <div class="content-section">
     <form method="POST">
         {% csrf_token %}
         <fieldset class="form-group">
             <legend class="border-bottom mb-4">Formular</legend>
-            {{ form|crispy }}
+            {{ form|crispy }}s
         </fieldset>
         <div class="form-group">
             <button class="btn btn-outline-info" type="submit">Absenden</button>
         </div>
     </form>
 </div>
+
+<script type='text/javascript'>
+    $('label[for=id_license_plate], input#id_license_plate').hide();
+    $('#id_license_plate').hide()
+    $(function(){
+      $('#id_car').click(function(){
+         if($('#id_car').is(':checked')){
+             $('label[for=id_license_plate], input#id_license_plate').show();
+             $('#id_license_plate').show();
+         }else{
+             $('label[for=id_license_plate], input#id_license_plate').hide();
+             $('#id_license_plate').hide();
+         }
+      });
+    });
+</script>
+
 {% endblock content %}
