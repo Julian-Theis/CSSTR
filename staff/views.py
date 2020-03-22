@@ -3,11 +3,29 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .forms import SearchForm
 from patients.models import Test, Patient
+from pdf import pdfCreator
+import os
 
 def archive(archive_id):
     patient = Patient.objects.get(pk=archive_id)
     patient.tested = True
     patient.save()
+
+def drucken(print_id):
+    patient = Patient.objects.get(pk=print_id)
+    file = pdfCreator.generate_label(patient.id,
+                              patient.firstname + " " + patient.lastname,
+                              str(patient.birthdate),
+                              str(patient.zip) + " " + patient.city,
+                              str(patient.phone),
+                              patient.doctor,
+                              patient.insurance)
+
+    file = os.path.join(os.getcwd(), file)
+    print(file)
+    os.startfile(file)
+
+
 
 @login_required(login_url="staff-login")
 def home(request):
@@ -15,8 +33,7 @@ def home(request):
         try:
             form = SearchForm(request.GET)
             code = form.data['code']
-            patients = Patient.objects.filter(code=code, tested=False)
-            print(patients)
+            patients = Patient.objects.filter(code=code, tested=False, confirmed=True)
         except:
             code = None
             patients = []
@@ -35,6 +52,10 @@ def home(request):
         archive_id = request.GET['archive']
         archive(archive_id)
 
+    if request.method == 'GET' and 'print' in request.GET.keys():
+        print_id = request.GET['print']
+        drucken(print_id)
+
     for patient in patients:
         t = Test.objects.get(code=patient.code)
         patient.email = t.email
@@ -44,9 +65,9 @@ def home(request):
         patient.date_created = t.date_created
         patient.last_modified = t.last_modified
 
-    total_reg = len(Patient.objects.all())
-    open_reg = len(Patient.objects.filter(tested=False))
-    open_test = len(Patient.objects.filter(tested=True))
+    total_reg = len(Patient.objects.filter(confirmed=True))
+    open_reg = len(Patient.objects.filter(tested=False, confirmed=True))
+    open_test = len(Patient.objects.filter(tested=True, confirmed=True))
 
     context = {
         "title": "Mitarbeiter",

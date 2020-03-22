@@ -63,3 +63,4 @@ class TestRegistrationForm(forms.ModelForm):
             insurance=self.cleaned_data["insurance"],
             positive_contact=self.cleaned_data["positive_contact"]
         )
+        return {"email" : test.email, "code" : test.code}

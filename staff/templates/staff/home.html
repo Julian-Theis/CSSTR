@@ -1,5 +1,5 @@
 {% extends "staff/base.html" %}
-<title>CSSRT - Mitarbeiter</title>
+<title>CSSTR - Mitarbeiter</title>
 
 
 
@@ -25,7 +25,7 @@
                 Telefon: &nbsp;&nbsp;{{ test.phone }}<br />
                 Hausarzt: &nbsp;&nbsp;{{ test.doctor }}<br />
                 Krankenkasse: &nbsp;&nbsp;{{ test.insurance }}<br />
-                Positiver Kontakt:&nbsp;&nbsp; {{ test.positive_contact }}<br />
+                Positiver COVID-19 Kontakt:&nbsp;&nbsp; {{ test.positive_contact }}<br />
                 <a href="?code={{ test.code }}&id={{test.id}}&print={{id}}">Drucken</a> &nbsp;|&nbsp; <a href="?code={{test.code}}&archive={{ test.id }}" onclick="return confirmArchive()">Archivieren</a>
 
             </article>
@@ -34,7 +34,7 @@
 
 <script>
 function confirmArchive() {
-    return confirm("Sind Sie sicher, dass Sie diese Registrierung archivieren möchten? Die Patienteninformationen werden nicht mehr sichtbar sein.");
+    return confirm("Sind Sie sicher, dass Sie diese Registrierung archivieren möchten? Die Patienteninformationen werden nicht mehr sichtbar sein, sind aber weiterhin in der Datenbank gespeichert.");
 }
 </script>
 
