@@ -104,7 +104,6 @@ class TestRegistrationForm(forms.ModelForm):
             insurance=self.cleaned_data["insurance"],
             positive_contact=self.cleaned_data["positive_contact"]
         )
-<<<<<<< HEAD
         if self.cleaned_data["num_people"] > 1:
             Patient.objects.create(
                 code=test.code,
@@ -157,6 +156,4 @@ class TestRegistrationForm(forms.ModelForm):
                 insurance=self.cleaned_data["insurance_5"],
                 positive_contact=self.cleaned_data["positive_contact_5"]
             )
-=======
         return {"email" : test.email, "code" : test.code}
->>>>>>> 5b7c628724b8ee5610acc8142af0f3e369f20b1c
