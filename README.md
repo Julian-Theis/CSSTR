@@ -16,8 +16,15 @@ Titel: Überwinden des "Testing Bottlenecks" (ID: 1353)
 ### Problem
 Aktuell werden Bürgerinnen und Bürger von Haus- und Fachärzten an Corona-Untersuchungszentren (CUZ) in vielen Kreisen und Städten Deutschlands überwiesen. Die Patienten werden an den CUZ registriert und getestet. In den aktuellen Betrieben fällt auf, dass ein Bottleneck durch eine zeitaufwendige, manuelle und papierbasierte Registrierung der zu testenden Personen entsteht. Dies führt zu langen Wartezeiten und potentiellen Kapazitätsengpässen.
 
+### Ziel
+Schnellstmögliche Überwindung des Bottlenecks in den Corona Untersuchungszentren, da neben den Fallzahlen auch die Wartezeiten im CUZ exponentiell steigen. Höhere Kapazitäten bei gleicher Zeit, schnellere Tests, Reduzierung von Human-Error, Stammdatenkonsistenz, und niedrigere Prozesskosten je Test sind somit die Ziele.
+
 ### Lösungsansatz
-Entwicklung eines digitalen Service zur Selbst-Registrierung zu testendener Personen nach dem "Order-on-the-go"-Prinzip.
+Entwicklung eines digitalen Service zur Selbst-Registrierung zu testendener Personen nach dem "Order-on-the-go"-Prinzip. Einfach zu bedienende Oberfläche zum digitalen Check-In für Personen, die sich dem Coronavirus Test unterziehen - sowohl mobil als auch via Desktop. Die Oberfläche für CUZ Mitarbeiter dient zum Datenabgleich, automatischen Labeldruck und zur Einsicht von Statistiken.
+
+
+### Entwicklung
+Die Webapplikation wurde mittels Django und SQLite entwickelt und ist betriebsbereit. Eine Testphase des CSSTR ist für die kommende Woche in einem CUZ in NRW geplant, in der Hoffnung, dass ein schnelles Rollout deutschlandweit realisiert werden kann. Weitere Integration von Schnittstellen sind geplant, vorallem in Absprache mit potentiellen Projektpartnern.
 
 ### Stakeholder
 Patienten, Katastrophenschutz, Kreise und kreisfreie Städte, Kommunen, Feuerwehr, Hilfsorganisationen
