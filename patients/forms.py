@@ -3,13 +3,13 @@ from django.contrib.auth.models import User
 from .models import Test
 from .models import Patient
 from django.contrib.admin.widgets import AdminDateWidget
+from django.forms import HiddenInput
 from patients.utils import unique_id_generator
 import datetime
 
 class TestRegistrationForm(forms.ModelForm):
     email = forms.EmailField(required=True)
     num_people = forms.IntegerField(min_value=1, max_value=5, label="Anzahl zu testender Personen",initial=1)
-    car = forms.BooleanField(label="Anreise per Auto", required=False)
     license_plate = forms.CharField(max_length=10, label="KfZ-Kennzeichen", required=False)
 
     firstname = forms.CharField(max_length=100, label="Vorname")
