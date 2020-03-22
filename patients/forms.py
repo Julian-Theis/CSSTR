@@ -49,7 +49,7 @@ class TestRegistrationForm(forms.ModelForm):
         test.code = unique_id_generator()
         test.num_people = self.cleaned_data["num_people"]
         test.car = self.cleaned_data["num_people"]
-        #test.license_plate
+        #test.license_plate =
         test.save()
         Patient.objects.create(
             code=test.code,
