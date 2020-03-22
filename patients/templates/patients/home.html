@@ -1,9 +1,18 @@
 {% extends "patients/base.html" %}
+{% load static %}
 <title>CSSRT - Willkommen</title>
 
 {% block content %}
-<h1>Willkommen zur Corona Self-Service Test Registration</h1>
 
+<h1>Corona Self-Service Test Registration</h1>
+    <center><img src="{% static 'patients/logov1.png' %}" width="30%"/></center>
 
-Hier muss dann noch eine Beschreibung her....
+    Für einen schnellen Ablauf im Corona-Untersuchungszentrum (CUZ) am Standort <b>VIERSEN </b> können Sie sich bereits jetzt registrieren. Sie erhalten am Ende der Registrierung einen Code, den Sie bitte dem entsprechenden CUZ-Mitarbeitenden nennen. Dieser dient der korrekten und sicheren Zuordnung Ihrer Kontaktdaten mit dem Abstrichset.
+    Sie kommen mit mehreren zu testenden Personen in einem Auto zur CUZ? Kein Problem, unter einem Code können auch mehrere Personen registriert werden.<br /><br />
+
+<u>Wie funktioniert der Ablauf im CUZ?</u><br />
+<b>1.</b>   Ein Arzt prüft Ihre Symptome.<br />
+<b>2.</b>   Sie nennen dem nächsten CUZ-Mitarbeitenden Ihren persönlichen Code, den Sie nach der Registrierung per E-Mail erhalten, und halten die Personalausweise und Krankenkassenkarte von allen zu testenden Personen bereit.<br />
+<b>3.</b>   Der Abstrich wird durchgeführt: Dabei wird Ihnen mit einem Wattestäbchen Genmaterial aus den Wangentaschen und der Nase entnommen.<br />
+<b>4.</b>   Sie erhalten in wenigen Tagen eine Rückmeldung über das Testergebnis von Ihrem Hausarzt (bearbeitet).<br />
 {% endblock content %}

@@ -1,7 +1,5 @@
 from django.db import models
 from django.utils import timezone
-from django.contrib.auth.models import User
-
 
 class Test(models.Model):
     code = models.CharField(max_length=6, default="")
@@ -12,12 +10,8 @@ class Test(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(default=timezone.now)
 
-    def __str__(self):
-        return self.email
-
-
 class Patient(models.Model):
-    test = models.ForeignKey(Test,on_delete=models.CASCADE)
+    code = models.CharField(max_length=6, default="")
     firstname = models.CharField(max_length=100, default="")
     lastname = models.CharField(max_length=100, default="")
     birthdate = models.DateField(default=timezone.now)

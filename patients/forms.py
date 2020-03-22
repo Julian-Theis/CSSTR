@@ -52,7 +52,7 @@ class TestRegistrationForm(forms.ModelForm):
         #test.license_plate
         test.save()
         Patient.objects.create(
-            test=test,
+            code=test.code,
             firstname=self.cleaned_data["firstname"],
             lastname=self.cleaned_data["lastname"],
             birthdate=self.cleaned_data["birth_date"],

@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 
 <!doctype html>
 <html lang="en">
@@ -16,7 +17,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'patients/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'patients/main.css' %}"
 
 
 </head>
@@ -24,39 +25,24 @@
 <header class="site-header">
     <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
-            <a class="navbar-brand mr-4" href="/">CSSTR</a>
+            <a class="navbar-brand mr-4" href="{% url 'staff-home' %}">CSSTR Mitarbeiter</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
                     aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarToggle">
                 <div class="navbar-nav mr-auto">
-                    <a class="nav-item nav-link" href="{% url 'patients-registration' %}">Corona Test Registrierung</a>
-                </div>
-                <!-- Navbar Right Side -->
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="#">Datenschutz</a>
-                    <a class="nav-item nav-link" href="#">Impressum</a>
+                    <a class="nav-item nav-link" href="{% url 'staff-logout' %}">Logout</a>
                 </div>
             </div>
         </div>
     </nav>
 </header>
-
 <main role="main" class="container">
-    <div class="row">
+      <div class="row">
         <div class="col-md-8">
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="alert alert-{{message.tags}}">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endif %}
-            {% block content %}{% endblock %}
-        </div>
-    </div>
-</main>
+          {% block content %}{% endblock %}
+        </div></div></main>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
