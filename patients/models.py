@@ -15,10 +15,12 @@ class Patient(models.Model):
     firstname = models.CharField(max_length=100, default="")
     lastname = models.CharField(max_length=100, default="")
     birthdate = models.DateField(default=timezone.now)
+    streetaddress = models.CharField(max_length=100, default="")
     zip = models.CharField(max_length=100, default="")
     city = models.CharField(max_length=100, default="")
     phone = models.CharField(max_length=100, default="")
     doctor = models.CharField(max_length=100, default="")
+    doctor_city = models.CharField(max_length=100, default="")
     insurance = models.CharField(max_length=100, default="")
     positive_contact = models.BooleanField(default=True)
 

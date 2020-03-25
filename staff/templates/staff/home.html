@@ -21,9 +21,11 @@
                 <h4>Details zu {{ test.lastname }}, {{ test.firstname }}</h4>
                 <br />
                 Geburtsdatum: &nbsp;&nbsp; {{ test.birthdate }}<br />
-                PLZ, Ort: &nbsp;&nbsp;{{ test.zip }}, {{ test.city }}<br />
+                Strasse und Hausnummer: &nbsp;&nbsp;{{ test.streetaddress }}<br />
+                PLZ, Ort: &nbsp;&nbsp;{{ test.zip }} {{ test.city }}<br />
                 Telefon: &nbsp;&nbsp;{{ test.phone }}<br />
                 Hausarzt: &nbsp;&nbsp;{{ test.doctor }}<br />
+                Hausarzt Ort: &nbsp;&nbsp;{{ test.doctor_city }}<br />
                 Krankenkasse: &nbsp;&nbsp;{{ test.insurance }}<br />
                 Positiver COVID-19 Kontakt:&nbsp;&nbsp; {{ test.positive_contact }}<br />
                 <a href="?code={{ test.code }}&id={{test.id}}&print={{id}}">Drucken</a> &nbsp;|&nbsp; <a href="?code={{test.code}}&archive={{ test.id }}" onclick="return confirmArchive()">Archivieren</a>

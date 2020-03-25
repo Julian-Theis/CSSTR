@@ -13,16 +13,17 @@ def archive(archive_id):
 
 def drucken(print_id):
     patient = Patient.objects.get(pk=print_id)
+    birthdate = patient.birthdate
     file = pdfCreator.generate_label(patient.id,
                               patient.firstname + " " + patient.lastname,
-                              str(patient.birthdate),
-                              str(patient.zip) + " " + patient.city,
+                              str(birthdate.strftime("%d.%m.%Y")),
+                              str(patient.streetaddress) + ", " + str(patient.zip) + " " + patient.city,
                               str(patient.phone),
                               patient.doctor,
+                              patient.doctor_city,
                               patient.insurance)
 
     file = os.path.join(os.getcwd(), file)
-    print(file)
     os.startfile(file)
 
 
