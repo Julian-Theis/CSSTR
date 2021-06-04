@@ -1,6 +1,6 @@
 asgiref==3.2.5
 certifi==2019.11.28
-Django==3.0.7
+Django==3.1.9
 django-crispy-forms==1.9.0
 django-six==1.0.4
 Pillow==7.0.0
