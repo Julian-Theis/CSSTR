@@ -3,7 +3,7 @@ certifi==2019.11.28
 Django==3.0.7
 django-crispy-forms==1.9.0
 django-six==1.0.4
-Pillow==7.0.0
+Pillow==8.3.2
 python-decouple==3.3
 pytz==2019.3
 reportlab==3.5.42
